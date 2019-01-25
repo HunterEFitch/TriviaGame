@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trivia Game</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="javascript" type="text/javascript" href="assets/javascript/js.js">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <form>
+      <div class="jumbotron">
+        <h1 class="display-4">Totally Trivial Trivia!</h1>
+        <h3 id="timer">Time Remaining :30 Seconds!</h3>
+        <div class="container">
+          <form>
+            <div class="form-group">
+              <label class="form-check-label" for="exampleRadios1">
+                <label class="form-check-label" for="exampleRadios2">
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group form-check">
+            </div>
+          </form>
+          <a class="btn btn-primary btn-lg" id="done" href="#" role="button">Done!</a>
+          <p class="Correct"></p>
+          <p class="Incorrect"></p>
+        </div>
+
+
+    </form>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script>
+
+    start()
+
+    const myQuestions = [
+      {
+        question: "1: When did Arizona become a state?",
+        answers: [
+          "1889",
+          "1912",
+          "1902"
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: "2: What is the most used social media app?",
+        answers: [
+          "Instagram",
+          "Facebook",
+          "Snapchat"
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: "3: What 2 colors make pink?",
+        answers: [
+          "white and Orange",
+          "Red and White",
+          "White and Orange",
+          "Theres no such thing as pink"
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: "4: What came first the egg or the chicken?",
+        answers: [
+          "Egg",
+          "Chicken",
+          "Both"
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: "5: What is the meaning of life?",
+        answers: [
+          "To live",
+          "To die",
+          "Theres no meaning"
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: "6: Why am i studying?",
+        answers: [
+          "To be educated",
+          "To get a degree",
+          "To get money money"
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: "7: What can travel around the world and stay in the same corner?",
+        answers: [
+          "The airplane seat in the corner",
+          "A stamp",
+          "A bug"
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: "8: What is the most popular sport in the world?",
+        answers: [
+          "Footbal",
+          "Soccer",
+          "Baseball"
+        ],
+        correctAnswer: "Soccer"
+      },
+    ];
+
+    for (var i = 0; i < myQuestions.length; i++) {
+
+      var $formGroup = $("<div class='form-group'>")
+        .append($("<label>" + myQuestions[i].question + "</label>"))
+        .append($("<br>"));
+
+      for (var j = 0; j < myQuestions[i].answers.length; j++) {
+
+        var $label = $("<label class='form-check-label'>")
+          .text(myQuestions[i].answers[j]);
+        var $input = $("<input type='radio' class='form-check-input'>")
+          .attr("name", "q" + i)
+          .attr("value", myQuestions[i].answers[j]);
+
+        var $formCheck = $("<div class='form-check form-check-inline'>")
+          .append($input)
+          .append($label);
+        $formGroup.append($formCheck);
+      }
+
+      $("form").append($formGroup);
+
+    }
+
+    //------------timer function---------------
+    window.onload = timedText;
+    function timedText() {
+      var txt = document.getElementById('txt'),
+        counter = 15;
+      var timer = setInterval(function () {
+        if (counter === 0) return clearInterval(timer);
+        txt.value = counter + " seconds";
+        counter--;
+      }, 1000);
+    }
+}
+
+  </script>
+
+</body>
+
+</html>
+
+
+
+C
