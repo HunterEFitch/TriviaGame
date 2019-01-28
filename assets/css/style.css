@@ -1,5 +1,11 @@
+body {
+    background-image: url(images/balls.jpg);
+}
 
+#mainBox {
+    padding: 15px;
+}
 
-.container {
-    text-align: center;
+#counter {
+    color: red;
 }
